@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.kellte</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<kettle.version>7.0.0.0-24</kettle.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring Boot JDBC -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-core</artifactId>
+			<version>${kettle.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.verhas</groupId>
+			<artifactId>license3j</artifactId>
+			<version>1.0.7 </version>
+		</dependency>
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-dbdialog</artifactId>
+			<version>${kettle.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-engine</artifactId>
+			<version>${kettle.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pentaho</groupId>
+			<artifactId>metastore</artifactId>
+			<version>${kettle.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+
+				<version>19.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.41</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/oro/oro -->
+		<dependency>
+			<groupId>oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.enterprisedt/edtFTPj -->
+		<dependency>
+			<groupId>com.enterprisedt</groupId>
+			<artifactId>edtFTPj</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.birt.runtime.3_7_1/org.mozilla.javascript -->
+		<dependency>
+			<groupId>org.eclipse.birt.runtime.3_7_1</groupId>
+			<artifactId>org.mozilla.javascript</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.enterprisedt</groupId>
+			<artifactId>edtftpj</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/ooxml-schemas -->
+		<!--<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>ooxml-schemas</artifactId>
+			<version>3.7</version>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.apache/poi-scratchpad -->
+		<!--<dependency>
+			<groupId>org.apache</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>3.1</version>
+		</dependency>-->
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
