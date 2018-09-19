@@ -4,7 +4,10 @@ import org.apache.poi.ss.formula.functions.T;
 import org.pentaho.di.core.KettleEnvironment;
 import org.pentaho.di.core.Result;
 import org.pentaho.di.core.exception.KettleException;
+import org.pentaho.di.core.exception.KettleValueException;
+import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.core.util.EnvUtil;
+import org.pentaho.di.core.variables.VariableSpace;
 import org.pentaho.di.job.Job;
 import org.pentaho.di.job.JobMeta;
 import org.pentaho.di.trans.Trans;
@@ -48,18 +51,13 @@ public class KellteUtil {
         EnvUtil.environmentInit();
         //创建转换元数据
         TransMeta transMeta=new TransMeta(transFileName);
-        //创建转换
         Trans trans=new Trans(transMeta);
-        String[] x=new String[map.size()];
-        int i=0;
-        //设置参数
+
+        //创建转换
         for(Map.Entry<String,String> entry:map.entrySet()){
             trans.setVariable(entry.getKey(),entry.getValue());
-            trans.setParameterValue(entry.getKey(),entry.getValue());
-            x[i++]=entry.getValue();
         }
-        //执行
-        trans.execute(x);
+        trans.execute(null);
         //等待结束
         trans.waitUntilFinished();
         //抛出异常
@@ -110,4 +108,7 @@ public class KellteUtil {
             throw new Exception("There are errors during job exception!(执行job发生异常)");
         }
     }
+
+
 }
+

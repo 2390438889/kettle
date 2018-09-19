@@ -33,6 +33,6 @@ public class FtpUtilTest {
     }
     @Test
     public void downloadTest(){
-        ftpUtil.downLoadFtpFile("/convert","C:\\Users\\Administrator\\Desktop\\bat\\aa");
+        ftpUtil.downLoadFtpDirFile("/ftpTest/test.csv","C:\\Users\\Administrator\\Desktop");
     }
 }

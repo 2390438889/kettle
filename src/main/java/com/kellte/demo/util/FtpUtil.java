@@ -156,24 +156,26 @@ public class FtpUtil {
             ftpClient.enterLocalPassiveMode();
             FileOutputStream fileOutputStream;
             BufferedOutputStream bufferedOutputStream;
+            String localFileName;
             if(ftpClient.changeWorkingDirectory(ftpPath)){
                 //获得该ftp文件夹下所有的文件名
                 //遍历每个文件，将文件下载到本地
                 String[] fileNames=ftpClient.listNames();
                 for(String fileName:fileNames){
+                    localFileName=new String(fileName.getBytes(serverCharset),localCharset);
                     if(fileName.indexOf(".")>0){
-                        fileOutputStream=new FileOutputStream(new File(savePath+"\\"+new String(fileName.getBytes(serverCharset),localCharset)));
+                        fileOutputStream=new FileOutputStream(new File(savePath+"\\"+localFileName));
                         bufferedOutputStream=new BufferedOutputStream(fileOutputStream);
                         ftpClient.retrieveFile(ftpPath+"/"+fileName,bufferedOutputStream);
                         bufferedOutputStream.flush();
                         bufferedOutputStream.close();
                         fileOutputStream.close();
                     }else{
-                        File dir=new File(savePath+"\\"+new String(fileName.getBytes(serverCharset),localCharset));
+                        File dir=new File(savePath+"\\"+localFileName);
                         dir.mkdir();
                         downLoadFtpFile(ftpPath+"/"+fileName,savePath+"\\"+dir.getName());
                     }
-                    System.out.println(new String(fileName.getBytes(serverCharset),localCharset)+">>>>>>>>>>>>>>>下载成功！");
+                    System.out.println(localFileName+">>>>>>>>>>>>>>>下载成功！");
                 }
                 System.out.println(savePath+":下载完毕>>>>>>>>>>>>>>>");
                 return true;
@@ -204,28 +206,31 @@ public class FtpUtil {
             BufferedOutputStream bufferedOutputStream;
             String path=ftpPath.substring(0,ftpPath.lastIndexOf("/"));
             String name=ftpPath.substring(ftpPath.lastIndexOf("/")+1);
+            String localFileName;
             //如果是文件
             if(ftpPath.indexOf(".")>0){
                 if(ftpClient.changeWorkingDirectory(path)){
-                    fileOutputStream=new FileOutputStream(new File(savePath+"\\"+new String(name.getBytes(serverCharset),localCharset)));
+                    localFileName=new String(name.getBytes(serverCharset),localCharset);
+                    fileOutputStream=new FileOutputStream(new File(savePath+"\\"+localFileName));
                     bufferedOutputStream=new BufferedOutputStream(fileOutputStream);
                     ftpClient.retrieveFile(ftpPath,bufferedOutputStream);
                     bufferedOutputStream.flush();
                     bufferedOutputStream.close();
                     fileOutputStream.close();
-                    System.out.println(new String(name.getBytes(serverCharset),localCharset)+">>>>>>>>>>>>>>>下载成功！");
+                    System.out.println(localFileName+">>>>>>>>>>>>>>>下载成功！");
                 }
             }else{
                 if(ftpClient.changeWorkingDirectory(ftpPath)){
                     //获得该ftp文件夹下所有的文件名
                     //遍历每个文件，将文件下载到本地
-                    File dir=new File(savePath+"\\"+new String(name.getBytes(serverCharset),localCharset));
+                    File dir=new File(savePath+"\\"+name);
                     dir.mkdir();
+                    System.out.println(dir.getName()+">>>>>>>>>>>>>>>下载成功！");
                     for(String fileName:ftpClient.listNames()){
-                        downLoadFtpFile(ftpPath+"/"+fileName,savePath+"\\"+name);
+                        downLoadFtpDirFile(ftpPath+"/"+fileName,savePath+"\\"+dir.getName());
 
                     }
-                    System.out.println(savePath+":下载完毕>>>>>>>>>>>>>>>");
+                    System.out.println(dir.getAbsolutePath()+":下载完毕>>>>>>>>>>>>>>>");
                     return true;
 
                 }else{
