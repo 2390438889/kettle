@@ -175,7 +175,7 @@ public class FtpUtil {
                         dir.mkdir();
                         downLoadFtpFile(ftpPath+"/"+fileName,savePath+"\\"+dir.getName());
                     }
-                    System.out.println(localFileName+">>>>>>>>>>>>>>>下载成功！");
+                    System.out.println(localFileName+"下载成功 ^_^!>>>>>>>>>>>>>>>");
                 }
                 System.out.println(savePath+":下载完毕>>>>>>>>>>>>>>>");
                 return true;
@@ -249,6 +249,8 @@ public class FtpUtil {
 
 
     }
+
+
 
 
 

@@ -19,8 +19,8 @@ public class FtpUtilTest {
     @Test
     public void regexTest(){
 
-       System.out.println(Pattern.matches("^/([\\u4e00-\\u9fa5\\d\\w\\-]+/?)*","/1a/201-6-5我/cc/"));
-        System.out.println(Pattern.matches("^([^.]+.[^.]+)+","/1a/201-6-5我/cc"));
+       System.out.println(Pattern.matches("^(([0-8]\\d(.\\d{1,6})?)||90)$","80.01"));
+       // System.out.println(Pattern.matches("^([^.]+.[^.]+)+","/1a/201-6-5我/cc"));
     }
     @Test
     public void createDir(){
